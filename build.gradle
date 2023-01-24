@@ -24,23 +24,25 @@ repositories {
 javafx {
     version = "11"
     modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing' ]
+    configuration = "compileOnly"
 }
 
 dependencies {
-    // Use JUnit test framework.
-    testImplementation 'junit:junit:4.13.2'
-
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
-
-    implementation 'edu.wpi.first.shuffleboard:api:2023.2.1'
+    compileOnly 'edu.wpi.first.shuffleboard:api:2023.2.1'
     implementation 'org.freedesktop.gstreamer:gst1-java-fx:0.9.0'
     implementation 'org.freedesktop.gstreamer:gst1-java-core:1.4.0'
     implementation 'net.java.dev.jna:jna:5.12.1'
     implementation 'net.java.dev.jna:jna-platform:5.12.1'
+    implementation 'xml-apis:xml-apis:1.0.b2'
+}
 
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:31.1-jre'
+
+shadowJar {
+    dependencies {
+        exclude(dependency('edu.wpi.first.shuffleboard:api'))
+        //exclude(dependency('net.java.dev.jna:jna-platform'))
+        //exclude(dependency('net.java.dev.jna:jna'))
+    }
 }
 
 tasks.register("installPlugin", Copy) {

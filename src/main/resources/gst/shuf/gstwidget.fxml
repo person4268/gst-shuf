@@ -10,8 +10,4 @@
 <?import javafx.scene.image.Image?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="gst.shuf.GstWidget" fx:id="root">
     <ResizableImageView fx:id="imageView" preserveRatio="true" />
-
-    <fx:define>
-        <Image fx:id="emptyImage" url="/black_square.jpg" />
-    </fx:define>
 </StackPane>

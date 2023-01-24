@@ -19,11 +19,8 @@ public class GstWidget extends SimpleAnnotatedWidget<String> {
     @FXML
     private ResizableImageView imageView;
 
-    @FXML
-    private Image emptyImage;
-
     public GstWidget() {
-        imageView.imageProperty().set(emptyImage);
+
     }
 
     @Override
